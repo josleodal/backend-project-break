@@ -3,6 +3,8 @@ const Product = require("../models/Product");
 const multer = require('multer'); //Necesario para guardar imagenes
 const path = require('path');
 
+
+
 ///////////Nos sirve para guardarlas las imagenes
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -16,6 +18,9 @@ const storage = multer.diskStorage({
 
   
   const upload = multer({ storage: storage });
+
+
+
 
 //////////////Base Html/////////////////////////7
   const baseHtml = `
@@ -72,6 +77,23 @@ const getNavBar = (isDashboard, currentCategory) => {
     `;
 
     return navBarHtml;
+};
+
+
+//////////////////////////////////////Página principal////////////77
+
+const getPage = async (req, res) => {
+    try {
+        // Procesar la carga de archivos
+
+        // Tu código de procesamiento de archivos aquí
+
+        // Redirigir a la página /products
+        res.redirect(`/products`);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send({ message: "There was a problem processing the page", error: error.message });
+    }
 };
 
 
@@ -397,6 +419,6 @@ const deleteProduct = async (req, res) => {
 
 
 module.exports = { getProductCards, getProductCardsByID, createProduct, createNewProduct, getProductByIdDashboard, updateProduct,
-    updateEditProduct, showEditProduct, deleteProduct,getProductCardsDashboard, baseHtml, closingHtml, upload,getNavBar };
+    updateEditProduct, showEditProduct, deleteProduct,getProductCardsDashboard, baseHtml, closingHtml, upload,getNavBar, getPage };
 
 
