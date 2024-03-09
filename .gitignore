@@ -1,0 +1,12 @@
+# Node.js
+node_modules/
+
+
+
+
+# Dependencias de desarrollo
+.env
+
+
+
+peticiones.http
