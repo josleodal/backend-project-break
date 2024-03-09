@@ -5,11 +5,9 @@ const path = require('path');
 
 
 
-///////////Nos sirve para guardarlas las imagenes
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        const destinationPath = path.join(__dirname, 'public', 'uploads');
-        cb(null, destinationPath);
+        cb(null, path.join(__dirname, '../public/uploads'));
     },
     filename: function (req, file, cb) {
         cb(null, Date.now() + '-' + file.originalname);
@@ -109,7 +107,8 @@ function getProductCards(products) {
 
         html += `
             <div class="product-card">
-            <img src="${path.join(__dirname, 'public', 'uploads', product.imagen.replace(/\\/g, '/'))}" alt="${product.nombre}">
+            <img src="/uploads/${product.imagen}" alt="${product.nombre}">
+
 
                 <h2>${product.nombre}</h2>
                 <p>${product.descripcion}</p>
@@ -133,7 +132,8 @@ const getProductCardsByID = (product) => {
     let html = '';
     html = `
         <div class="product-card">
-        <img src="${path.join(__dirname, 'public', 'uploads', product.imagen.replace(/\\/g, '/'))}" alt="${product.nombre}">
+        <img src="/uploads/${product.imagen}" alt="${product.nombre}">
+
 
             <h2>${product.nombre}</h2>
             <p>${product.descripcion}</p>
@@ -207,7 +207,8 @@ function getProductCardsDashboard(products) {
     for (let product of products) {
       html += `
         <div class="product-card">
-        <img src="/uploads/${product.imagen.replace(/\\/g, '/')}" alt="${product.nombre}">
+        <img src="/uploads/${product.imagen}" alt="${product.nombre}">
+
           <h2>${product.nombre}</h2>
           <p>${product.descripcion}</p>
           <p>${product.precio}€</p>
@@ -257,7 +258,8 @@ const getProductByIdDashboard = (product) => {
     let html = '';
     html = `
     <div class="product-card">
-    <img src="${path.join(__dirname, 'public', 'uploads', product.imagen.replace(/\\/g, '/'))}" alt="${product.nombre}">
+    <img src="/uploads/${product.imagen}" alt="${product.nombre}">
+
 
         <h2>${product.nombre}</h2>
         <p>${product.descripcion}</p>
@@ -334,7 +336,8 @@ const updateEditProduct = (product) => {
                         <label for="imagen">Imagen:</label>
                         <input type="file" id="imagen" name="imagen" accept="image/*">
                     </li>
-                    ${product.imagen ? `<li><img src="/uploads/${product.imagen}" alt="Imagen actual"></li>` : ''}
+                    ${product.imagen ? `<li><img src="/uploads/${product.imagen}" alt="${product.nombre}">
+                    </li>` : ''}
                     <li>
                         <label for="name">Nombre:</label>
                         <input type="text" id="name" name="nombre" value="${product.nombre}" />
