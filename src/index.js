@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 // app.use(express.json());
 
 // Rutas definidas en productRoutes
-app.use('/', productRoutes);
+app.use('/products', productRoutes);
 
 // Conexión a la base de datos
 dbConnection();
