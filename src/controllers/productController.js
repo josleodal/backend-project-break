@@ -8,7 +8,7 @@ const path = require('path');
 ///////////Nos sirve para guardarlas las imagenes
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'public/uploads'); // Mantén la carpeta public si es necesario
+        cb(null, '/public/uploads'); // Mantén la carpeta public si es necesario
     },
     filename: function (req, file, cb) {
         cb(null, Date.now() + '-' + file.originalname);
