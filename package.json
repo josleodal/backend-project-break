@@ -32,6 +32,7 @@
     "define-data-property": "1.1.4",
     "depd": "2.0.0",
     "destroy": "1.2.0",
+    "dotenv": "s16.4.5",
     "ee-first": "1.1.1",
     "encodeurl": "1.0.2",
     "es-define-property": "1.0.0",
@@ -131,21 +132,13 @@
     "webidl-conversions": "7.0.0",
     "whatwg-url": "13.0.0",
     "xtend": "4.0.2",
-    "yallist": "4.0.0",
-    "dotenv": "s16.4.5"
+    "yallist": "4.0.0"
   },
-  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node --watch src/index.js"
-   
   },
-  
-  
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-   
-  }
+  "license": "ISC"
 }
