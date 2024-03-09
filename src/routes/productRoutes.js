@@ -109,6 +109,7 @@ const showProductById = async (req, res) => {
   
   router.get('/products', showProducts)
   router.get('/products/:_id', showProductById)
+  router.get('/',ProductController.baseHtml)
 
 
 
