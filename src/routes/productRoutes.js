@@ -107,9 +107,9 @@ const showProductById = async (req, res) => {
   router.get('/dashboard',showProducts)
   
   
-  router.get('/products', showProducts)
+  router.get('/', showProducts)
   router.get('/products/:_id', showProductById)
-  router.get('/',ProductController.baseHtml)
+
 
 
 
