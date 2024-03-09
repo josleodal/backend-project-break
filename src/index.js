@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 app.use(express.urlencoded({ extended: true }));
 
 // Middleware para servir archivos estáticos en la ruta /uploads
-//app.use('/uploads', express.static(path.join(__dirname, '../public/uploads')));
+app.use('/uploads', express.static(path.join(__dirname, '../public/uploads')));
 
 // Middleware para servir archivos estáticos en la carpeta ../public
 app.use(express.static(path.join(__dirname, '../public')));
