@@ -8,7 +8,8 @@ const path = require('path');
 ///////////Nos sirve para guardarlas las imagenes
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'public/uploads'); // Mantén la carpeta public si es necesario
+        const destinationPath = path.join(__dirname, 'public', 'uploads');
+        cb(null, destinationPath);
     },
     filename: function (req, file, cb) {
         cb(null, Date.now() + '-' + file.originalname);
@@ -108,7 +109,8 @@ function getProductCards(products) {
 
         html += `
             <div class="product-card">
-                <img src="/uploads/${product.imagen.replace(/\\/g, '/')}" alt="${product.nombre}">
+            <img src="${path.join(__dirname, 'public', 'uploads', product.imagen.replace(/\\/g, '/'))}" alt="${product.nombre}">
+
                 <h2>${product.nombre}</h2>
                 <p>${product.descripcion}</p>
                 <p>${product.precio}€</p>
@@ -131,7 +133,8 @@ const getProductCardsByID = (product) => {
     let html = '';
     html = `
         <div class="product-card">
-            <img src="/uploads/${product.imagen.replace(/\\/g, '/')}" alt="${product.nombre}">
+        <img src="${path.join(__dirname, 'public', 'uploads', product.imagen.replace(/\\/g, '/'))}" alt="${product.nombre}">
+
             <h2>${product.nombre}</h2>
             <p>${product.descripcion}</p>
             <p>${product.precio}€</p>
@@ -254,7 +257,8 @@ const getProductByIdDashboard = (product) => {
     let html = '';
     html = `
     <div class="product-card">
-    <img src="/uploads/${product.imagen.replace(/\\/g, '/')}" alt="${product.nombre}">
+    <img src="${path.join(__dirname, 'public', 'uploads', product.imagen.replace(/\\/g, '/'))}" alt="${product.nombre}">
+
         <h2>${product.nombre}</h2>
         <p>${product.descripcion}</p>
         <p>${product.precio}€</p>
